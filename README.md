@@ -14,6 +14,60 @@ Anvil Editor aims to provide a user-friendly interface for browsing world record
 
 Coming soon! Currently in development...
 
+## Requirements and Setup
+
+Anvil Editor is built with Java and JavaFX and uses Maven to manage dependencies and run the application.
+
+### Requirements
+
+- **JDK 21:** Required to compile and run the application
+- **Visual Studio Code:** Recommended for development
+- **Extension Pack for Java:** Recommended for Java development in VS Code (if you would like)
+- **Maven:** Used to manage dependencies, compile the project, and launch the application
+
+### Running the Application
+
+1. Install JDK 21 from [Eclipse Temurin](https://adoptium.net/) or another JDK distribution.
+2. Verify that Java is installed by running this command in a terminal:
+
+   ```powershell
+   java -version
+   ```
+
+3. Clone the repository and open it in VS Code.
+4. Ensure that the project contains its `pom.xml` file and allow VS Code to import the Maven project.
+5. From the repository root, run the following command to compile the project:
+
+   ```powershell
+   mvn clean compile
+   ```
+
+6. Launch the application using:
+
+   ```powershell
+   mvn javafx:run
+   ```
+
+### Using the Maven Wrapper
+
+If the repository includes the Maven Wrapper files (`mvnw`, `mvnw.cmd`, and `.mvn/wrapper/`), you do not need to install Maven separately. The wrapper downloads and uses the configured Maven version.
+
+On Windows, run:
+
+```powershell
+.\mvnw.cmd clean compile
+.\mvnw.cmd javafx:run
+```
+
+On macOS or Linux, run:
+
+```bash
+./mvnw clean compile
+./mvnw javafx:run
+```
+
+You will still need a compatible JDK installed. If the project does not yet contain the Maven Wrapper files, use the regular Maven commands above.
+
 ## References
 
 * [Minecraft Wiki — Bedrock Edition level format](https://minecraft.wiki/w/Bedrock_Edition_level_format)
