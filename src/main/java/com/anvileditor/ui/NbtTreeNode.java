@@ -1,4 +1,4 @@
-package ui;
+package com.anvileditor.ui;
 
 /**
  * Represents a single node in the NBT tree displayed by the Anvil Editor UI.

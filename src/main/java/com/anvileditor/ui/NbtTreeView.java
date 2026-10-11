@@ -1,4 +1,4 @@
-package ui;
+package com.anvileditor.ui;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -28,11 +28,9 @@ public class NbtTreeView extends BorderPane {
         TreeItem<NbtTreeNode> level =
                 new TreeItem<>(new NbtTreeNode("Level", "COMPOUND", null));
 
-        level.getChildren().addAll(
-                new TreeItem<>(new NbtTreeNode("xPos", "INT", 1)),
-                new TreeItem<>(new NbtTreeNode("zPos", "INT", 0)),
-                new TreeItem<>(new NbtTreeNode("Status", "STRING", "full"))
-        );
+        level.getChildren().add(new TreeItem<>(new NbtTreeNode("xPos", "INT", 1)));
+        level.getChildren().add(new TreeItem<>(new NbtTreeNode("zPos", "INT", 0)));
+        level.getChildren().add(new TreeItem<>(new NbtTreeNode("Status", "STRING", "full")));
 
         // Example Entities list containing one entity
         TreeItem<NbtTreeNode> entities =
@@ -41,10 +39,10 @@ public class NbtTreeView extends BorderPane {
         TreeItem<NbtTreeNode> entity =
                 new TreeItem<>(new NbtTreeNode("Entity 0", "COMPOUND", null));
 
-        entity.getChildren().addAll(
-                new TreeItem<>(new NbtTreeNode("id", "STRING", "minecraft:cow")),
-                new TreeItem<>(new NbtTreeNode("Health", "FLOAT", 20.0f))
-        );
+        entity.getChildren().add(
+            new TreeItem<>(new NbtTreeNode("id", "STRING", "minecraft:cow")));
+        entity.getChildren().add(
+            new TreeItem<>(new NbtTreeNode("Health", "FLOAT", 20.0f)));
 
         entities.getChildren().add(entity);
         level.getChildren().add(entities);
