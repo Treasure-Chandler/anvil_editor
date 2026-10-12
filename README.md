@@ -14,59 +14,75 @@ Anvil Editor aims to provide a user-friendly interface for browsing world record
 
 Coming soon! Currently in development...
 
-## Requirements and Setup
+## Installation and Setup
 
-Anvil Editor is built with Java and JavaFX and uses Maven to manage dependencies and run the application.
+### Prerequisites
 
-### Requirements
+Before running Anvil Editor, install:
+- **JDK 21 or newer** — the project compiles for Java 21. The application was tested on JDK 25.
+- **Visual Studio Code** (recommended).
+- **Extension Pack for Java for VS Code** (recommended).
 
-- **JDK 21:** Required to compile and run the application
-- **Visual Studio Code:** Recommended for development
-- **Extension Pack for Java:** Recommended for Java development in VS Code (if you would like)
-- **Maven:** Used to manage dependencies, compile the project, and launch the application
+Maven is included through the Maven Wrapper, so a separate Maven installation is not required!
 
-### Running the Application
+### 1. Clone the Repository
 
-1. Install JDK 21 from [Eclipse Temurin](https://adoptium.net/) or another JDK distribution.
-2. Verify that Java is installed by running this command in a terminal:
+Clone the repository and open the project folder in VS Code. Then, open a terminal at the repository root; it needs to be where `pom.xml` and `mvnw.cmd` are located.
 
-   ```powershell
-   java -version
-   ```
+### 2. Configure Java
 
-3. Clone the repository and open it in VS Code.
-4. Ensure that the project contains its `pom.xml` file and allow VS Code to import the Maven project.
-5. From the repository root, run the following command to compile the project:
+Ensure that `JAVA_HOME` points to your installed JDK directory. For example, in PowerShell:
 
-   ```powershell
-   mvn clean compile
-   ```
+```powershell
+$env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jdk-25.0.4.101-hotspot"
+```
 
-6. Launch the application using:
+Replace the path with your actual JDK installation directory.
 
-   ```powershell
-   mvn javafx:run
-   ```
+Then, check that Java is available:
 
-### Using the Maven Wrapper
+```powershell
+Test-Path "$env:JAVA_HOME\bin\java.exe"
+java -version
+```
 
-If the repository includes the Maven Wrapper files (`mvnw`, `mvnw.cmd`, and `.mvn/wrapper/`), you do not need to install Maven separately. The wrapper downloads and uses the configured Maven version.
+The first command should return `True`.
 
-On Windows, run:
+**Note:** The `$env:JAVA_HOME` command configures Java only for the current PowerShell session. You may configure `JAVA_HOME` permanently through your Windows Environment Variables if desired.
+
+### 3. Verify the Maven Wrapper
+
+Run the following command from the repository root:
+
+```powershell
+.\mvnw.cmd -version
+```
+
+The wrapper will automatically download the configured Maven version if it is not already available.
+
+### 4. Compile the Project
+
+Compile the source code and check for errors:
 
 ```powershell
 .\mvnw.cmd clean compile
+```
+
+### 5. Run Anvil Editor
+
+Finally, launch JavaFX with:
+
+```powershell
 .\mvnw.cmd javafx:run
 ```
 
-On macOS or Linux, run:
+The first build or launch may take longer while Maven downloads the required dependencies.<br>
 
-```bash
-./mvnw clean compile
-./mvnw javafx:run
-```
-
-You will still need a compatible JDK installed. If the project does not yet contain the Maven Wrapper files, use the regular Maven commands above.
+### Installation Troubleshooting
+   - **`mvn` is not recognized:** Use `.\mvnw.cmd` instead of `mvn`. You won't need a separate Maven installation for this app.
+   - **Java cannot be found:** Verify that `JAVA_HOME` points to the JDK installation directory and that `bin\java.exe` exists.
+   - **Dependencies fail to download:** Check your internet connection and retry the command.
+   - **JavaFX warnings appear:** Some JavaFX native-access warnings may appear on newer JDK versions. If the application launches successfully, these warnings did not prevent the tested build from running, and you won't need to worry about them affecting the app's functionality.
 
 ## References
 
