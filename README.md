@@ -14,7 +14,7 @@ Anvil Editor aims to provide a user-friendly interface for browsing world record
 
 Coming soon! Currently in development...
 
-## Installation and Setup
+## Quick Start
 
 ### Prerequisites
 
@@ -27,7 +27,7 @@ Maven is included through the Maven Wrapper, so a separate Maven installation is
 
 ### 1. Clone the Repository
 
-Clone the repository and open the project folder in VS Code. Then, open a terminal at the repository root; it needs to be where `pom.xml` and `mvnw.cmd` are located.
+Clone the repository and open the project folder in VS Code.
 
 ### 2. Configure Java
 
@@ -37,57 +37,31 @@ Ensure that `JAVA_HOME` points to your installed JDK directory. For example, in 
 $env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jdk-25.0.4.101-hotspot"
 ```
 
-Replace the path with your actual JDK installation directory.
+Replace the example path with your actual JDK installation directory.
 
-Then, check that Java is available:
+You may configure `JAVA_HOME` permanently through your Windows Environment Variables if desired.
 
-```powershell
-Test-Path "$env:JAVA_HOME\bin\java.exe"
-java -version
-```
+### 3. Launch the Editor
 
-The first command should return `True`.
-
-**Note:** The `$env:JAVA_HOME` command configures Java only for the current PowerShell session. You may configure `JAVA_HOME` permanently through your Windows Environment Variables if desired.
-
-### 3. Verify the Maven Wrapper
-
-Run the following command from the repository root:
+From the repository root, run this launcher script:
 
 ```powershell
-.\mvnw.cmd -version
+.\run-anvil-editor.bat
 ```
 
-The wrapper will automatically download the configured Maven version if it is not already available.
-
-### 4. Compile the Project
-
-Compile the source code and check for errors:
-
-```powershell
-.\mvnw.cmd clean compile
-```
-
-### 5. Run Anvil Editor
-
-Finally, launch JavaFX with:
-
-```powershell
-.\mvnw.cmd javafx:run
-```
-
-The first build or launch may take longer while Maven downloads the required dependencies.<br>
+The script compiles the project and launches Anvil Editor using the repository's Maven Wrapper. Maven and JavaFX dependencies are downloaded automatically when needed, so a separate Maven installation is not required.<br>
 
 ### Installation Troubleshooting
-   - **`mvn` is not recognized:** Use `.\mvnw.cmd` instead of `mvn`. You won't need a separate Maven installation for this app.
-   - **Java cannot be found:** Verify that `JAVA_HOME` points to the JDK installation directory and that `bin\java.exe` exists.
-   - **Dependencies fail to download:** Check your internet connection and retry the command.
-   - **JavaFX warnings appear:** Some JavaFX native-access warnings may appear on newer JDK versions. If the application launches successfully, these warnings did not prevent the tested build from running, and you won't need to worry about them affecting the app's functionality.
+   - **Java not found:** Install JDK 21 and verify your JAVA_HOME configuration.
+   - **Compilation fails:** Check the error output and ensure your repository is up to date.
+   - **Dependencies fail to download:** Check your internet connection and retry the script.
+
+The first launch may take longer while Maven downloads the required tools and dependencies.
 
 ## References
 
 * [Minecraft Wiki — Bedrock Edition level format](https://minecraft.wiki/w/Bedrock_Edition_level_format)
-* [Mojang — leveldb-mcpe](https://github.com/Mojang/leveldb-mcpe)
+* [Mojang — leveldb-mcpe](https://github.com/jocopa3/leveldb-mcpe)
 * [maple-shaft — leveldb-mcpe-java-api](https://github.com/maple-shaft/leveldb-mcpe-java-api)
 * [Amulet Map Editor](https://github.com/Amulet-Team/Amulet-Map-Editor)
 * [Java Documentation](https://docs.oracle.com/en/java/)
