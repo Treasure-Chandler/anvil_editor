@@ -19,9 +19,10 @@ Coming soon! Currently in development...
 ### Prerequisites
 
 Before running Anvil Editor, install:
-- **JDK 21 or newer** — the project compiles for Java 21. The application was tested on JDK 25.
-- **Visual Studio Code** (recommended).
-- **Extension Pack for Java for VS Code** (recommended).
+- **JDK 21 or newer** — the project mainly compiles for Java 21, though you can use a newer JDK if needed.
+   - Install for [Windows](https://www.oracle.com/java/technologies/downloads/#jdk21-windows), [MacOS](https://www.oracle.com/java/technologies/downloads/#jdk21-mac), or [Linux](https://www.oracle.com/java/technologies/downloads/#jdk21-linux)
+- **[Visual Studio Code](https://code.visualstudio.com/download?_exp_download=d53503e735)** (recommended).
+- **[Extension Pack for Java for VS Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)** (recommended).
 
 Maven is included through the Maven Wrapper, so a separate Maven installation is not required!
 
@@ -29,19 +30,7 @@ Maven is included through the Maven Wrapper, so a separate Maven installation is
 
 Clone the repository and open the project folder in VS Code.
 
-### 2. Configure Java
-
-Ensure that `JAVA_HOME` points to your installed JDK directory. For example, in PowerShell:
-
-```powershell
-$env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jdk-25.0.4.101-hotspot"
-```
-
-Replace the example path with your actual JDK installation directory.
-
-You may configure `JAVA_HOME` permanently through your Windows Environment Variables if desired.
-
-### 3. Launch the Editor
+### 2. Launch the Editor
 
 From the repository root, run this launcher script:
 
@@ -49,14 +38,16 @@ From the repository root, run this launcher script:
 .\run-anvil-editor.bat
 ```
 
-The script compiles the project and launches Anvil Editor using the repository's Maven Wrapper. Maven and JavaFX dependencies are downloaded automatically when needed, so a separate Maven installation is not required.<br>
+The launcher automatically searches common installation locations for a JDK, configures `JAVA_HOME` for the current session, compiles the project, then launches Anvil Editor.
+
+If your JDK is installed in a non-standard location, you may need to configure `JAVA_HOME` manually. You can configure `JAVA_HOME` permanently through your system's environment variables if desired.
+
+Maven and JavaFX dependencies are downloaded automatically when needed. Keep in mind, the first launch may take longer while Maven downloads the required tools and dependencies.<br>
 
 ### Installation Troubleshooting
    - **Java not found:** Install JDK 21 and verify your JAVA_HOME configuration.
    - **Compilation fails:** Check the error output and ensure your repository is up to date.
    - **Dependencies fail to download:** Check your internet connection and retry the script.
-
-The first launch may take longer while Maven downloads the required tools and dependencies.
 
 ## References
 
